@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "Simple Chat",
+    description: "Simple Chat, made from ReactJS, and socket.io",
   },
   plugins: [
     "gatsby-plugin-image",
