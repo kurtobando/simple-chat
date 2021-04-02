@@ -1,14 +1,25 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
+import { useForm } from "react-hook-form"
+import onSubmit from "./_on-submit"
+import { ROOM_UNIQUE_ID } from "./_constant"
 
 const Form = () => {
     const [hasPassword, setHasPassword] = useState(false)
+    const { register, handleSubmit, errors } = useForm()
 
     return (
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
             {/* room unique id */}
             <div className="form-group">
-                <input className="form-control" type="text" placeholder="Room Unique ID" />
+                <input
+                    className="form-control"
+                    type="text"
+                    name={ROOM_UNIQUE_ID.name}
+                    placeholder={ROOM_UNIQUE_ID.placeholder}
+                    ref={register(ROOM_UNIQUE_ID.validationRules())}
+                />
+                {errors[ROOM_UNIQUE_ID.name] && errors[ROOM_UNIQUE_ID.name].message}
             </div>
 
             {/* has password? */}
@@ -16,7 +27,6 @@ const Form = () => {
                 <input
                     className="form-check-input"
                     type="checkbox"
-                    value=""
                     id="enable-protected-room"
                     onChange={() => setHasPassword(!hasPassword)}
                 />
