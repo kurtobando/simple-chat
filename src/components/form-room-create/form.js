@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import { useForm } from "react-hook-form"
 import onSubmit from "./_on-submit"
@@ -12,6 +12,7 @@ import {
 } from "./_constant"
 
 const Form = () => {
+    const [isEnabledPassword, setIsEnabledPassword] = useState(false)
     const { register, handleSubmit, errors } = useForm()
 
     return (
@@ -60,34 +61,37 @@ const Form = () => {
                     name={ROOM_ENABLE_PASSWORD.name}
                     id="enable-protected-room"
                     ref={register}
+                    onChange={() => setIsEnabledPassword(!isEnabledPassword)}
                 />
                 <label className="form-check-label" htmlFor="enable-protected-room">
                     {ROOM_ENABLE_PASSWORD.placeholder}
                 </label>
             </div>
 
-            {/* password */}
-            <div className="form-group">
-                <input
-                    className="form-control"
-                    type="password"
-                    name={ROOM_PASSWORD.name}
-                    placeholder={ROOM_PASSWORD.placeholder}
-                    ref={register(ROOM_PASSWORD.validationRules())}
-                />
-                {errors[ROOM_PASSWORD.name] && errors[ROOM_PASSWORD.name].message}
-            </div>
+            <div className={isEnabledPassword ? "d-block" : "d-none"}>
+                {/* password */}
+                <div className="form-group">
+                    <input
+                        className="form-control"
+                        type="password"
+                        name={ROOM_PASSWORD.name}
+                        placeholder={ROOM_PASSWORD.placeholder}
+                        ref={register(ROOM_PASSWORD.validationRules())}
+                    />
+                    {errors[ROOM_PASSWORD.name] && errors[ROOM_PASSWORD.name].message}
+                </div>
 
-            {/* retype password */}
-            <div className="form-group">
-                <input
-                    className="form-control"
-                    type="password"
-                    name={ROOM_RETYPE_PASSWORD.name}
-                    placeholder={ROOM_RETYPE_PASSWORD.placeholder}
-                    ref={register(ROOM_RETYPE_PASSWORD.validationRules())}
-                />
-                {errors[ROOM_RETYPE_PASSWORD.name] && errors[ROOM_RETYPE_PASSWORD.name].message}
+                {/* retype password */}
+                <div className="form-group">
+                    <input
+                        className="form-control"
+                        type="password"
+                        name={ROOM_RETYPE_PASSWORD.name}
+                        placeholder={ROOM_RETYPE_PASSWORD.placeholder}
+                        ref={register(ROOM_RETYPE_PASSWORD.validationRules())}
+                    />
+                    {errors[ROOM_RETYPE_PASSWORD.name] && errors[ROOM_RETYPE_PASSWORD.name].message}
+                </div>
             </div>
 
             {/* buttons */}

@@ -2,9 +2,9 @@ import React from "react"
 import Form from "./form"
 
 class FormRoomCreate extends React.Component {
-    constructor() {
-        super()
-    }
+    // constructor() {
+    //     super()
+    // }
     render() {
         return <Form />
     }
