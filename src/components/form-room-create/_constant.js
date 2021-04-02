@@ -18,6 +18,10 @@ export const ROOM_NAME = {
                 value: MAX,
                 message: `maximum ${MAX} characters`,
             },
+            pattern: {
+                value: /^[\w.-]+$/,
+                message: "accepted characters are 0-9, a-z, period (.), and hyphen (-) only",
+            },
         }
     },
 }
@@ -41,6 +45,10 @@ export const ROOM_DESCRIPTION = {
             maxLength: {
                 value: MAX,
                 message: `maximum ${MAX} characters`,
+            },
+            pattern: {
+                value: /^[\w\s]+$/,
+                message: "accepted characters are 0-9, a-z, and space only",
             },
         }
     },
@@ -72,6 +80,10 @@ export const ROOM_PASSWORD = {
                 value: MAX,
                 message: `maximum ${MAX} characters`,
             },
+            pattern: {
+                value: /^[\w.-]+$/,
+                message: "accepted characters are 0-9, a-z, period (.), and hyphen (-) only",
+            },
             validate: {
                 passwordEmpty: (value) => {
                     if (isEnabledPassword === true && value.length === 0) {
@@ -99,6 +111,10 @@ export const ROOM_RETYPE_PASSWORD = {
             maxLength: {
                 value: MAX,
                 message: `maximum ${MAX} characters`,
+            },
+            pattern: {
+                value: /^[\w.-]+$/,
+                message: "accepted characters are 0-9, a-z, period (.), and hyphen (-) only",
             },
             validate: {
                 passwordEmpty: (value) => {
