@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { useForm } from "react-hook-form"
-import onSubmit from "./_onSubmit"
+import onSubmit from "./_on-submit"
 import {
     ROOM_NAME,
     ROOM_DESCRIPTION,
@@ -57,7 +57,6 @@ const Form = () => {
                 <input
                     className="form-check-input"
                     type="checkbox"
-                    value="true"
                     name={ROOM_ENABLE_PASSWORD.name}
                     id="enable-protected-room"
                     ref={register}
@@ -71,7 +70,7 @@ const Form = () => {
             <div className="form-group">
                 <input
                     className="form-control"
-                    type="text"
+                    type="password"
                     name={ROOM_PASSWORD.name}
                     placeholder={ROOM_PASSWORD.placeholder}
                     ref={register(ROOM_PASSWORD.validationRules())}
@@ -83,7 +82,7 @@ const Form = () => {
             <div className="form-group">
                 <input
                     className="form-control"
-                    type="text"
+                    type="password"
                     name={ROOM_RETYPE_PASSWORD.name}
                     placeholder={ROOM_RETYPE_PASSWORD.placeholder}
                     ref={register(ROOM_RETYPE_PASSWORD.validationRules())}

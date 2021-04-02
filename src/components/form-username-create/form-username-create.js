@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-const UsernameCreate = () => {
+const FormUsernameCreate = () => {
     return (
         <div className="container-fluid">
             <div>
@@ -23,4 +23,4 @@ const UsernameCreate = () => {
     )
 }
 
-export default UsernameCreate
+export default FormUsernameCreate

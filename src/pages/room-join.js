@@ -1,5 +1,5 @@
 import React from "react"
-import FormRoomJoin from "../components/FormRoomJoin/FormRoomJoin"
+import FormRoomJoin from "../components/form-room-join/form-room-join"
 
 const RoomJoin = () => {
     return (

@@ -1,5 +1,5 @@
 import React from "react"
-import Form from "./Form"
+import Form from "./form"
 
 class FormRoomCreate extends React.Component {
     constructor() {
