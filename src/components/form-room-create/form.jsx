@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import { useForm } from "react-hook-form"
+import uniqid from "uniqid"
 import onSubmit from "./_on-submit"
 import {
     ROOM_NAME,
@@ -14,6 +15,7 @@ import {
 const Form = () => {
     const [isEnabledPassword, setIsEnabledPassword] = useState(false)
     const { register, handleSubmit, errors } = useForm()
+    const roomUniqueId = uniqid("simple-chat-")
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -50,6 +52,7 @@ const Form = () => {
                     placeholder={ROOM_UNIQUE_ID.placeholder}
                     readOnly={true}
                     ref={register}
+                    value={roomUniqueId}
                 />
             </div>
 
