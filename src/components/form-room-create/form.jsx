@@ -14,7 +14,11 @@ import {
 
 const Form = () => {
     const [isEnabledPassword, setIsEnabledPassword] = useState(false)
-    const { register, handleSubmit, errors } = useForm()
+    const [password, setPassword] = useState("")
+    const [retypePassword, setRetypePassword] = useState("")
+    const { register, handleSubmit, errors } = useForm({
+        reValidateMode: "onSubmit",
+    })
     const roomUniqueId = uniqid("simple-chat-")
 
     return (
@@ -79,7 +83,9 @@ const Form = () => {
                         type="password"
                         name={ROOM_PASSWORD.name}
                         placeholder={ROOM_PASSWORD.placeholder}
-                        ref={register(ROOM_PASSWORD.validationRules())}
+                        ref={register(ROOM_PASSWORD.validationRules(isEnabledPassword))}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                     {errors[ROOM_PASSWORD.name] && errors[ROOM_PASSWORD.name].message}
                 </div>
@@ -91,7 +97,11 @@ const Form = () => {
                         type="password"
                         name={ROOM_RETYPE_PASSWORD.name}
                         placeholder={ROOM_RETYPE_PASSWORD.placeholder}
-                        ref={register(ROOM_RETYPE_PASSWORD.validationRules())}
+                        ref={register(
+                            ROOM_RETYPE_PASSWORD.validationRules(password, retypePassword, isEnabledPassword)
+                        )}
+                        value={retypePassword}
+                        onChange={(e) => setRetypePassword(e.target.value)}
                     />
                     {errors[ROOM_RETYPE_PASSWORD.name] && errors[ROOM_RETYPE_PASSWORD.name].message}
                 </div>

@@ -59,7 +59,7 @@ export const ROOM_ENABLE_PASSWORD = {
 export const ROOM_PASSWORD = {
     name: "room-password",
     placeholder: "Room Password",
-    validationRules: function () {
+    validationRules: function (isEnabledPassword) {
         const MAX = 50
         const MIN = 5
 
@@ -71,6 +71,14 @@ export const ROOM_PASSWORD = {
             maxLength: {
                 value: MAX,
                 message: `maximum ${MAX} characters`,
+            },
+            validate: {
+                passwordEmpty: (value) => {
+                    if (isEnabledPassword === true && value.length === 0) {
+                        return "empty password"
+                    }
+                    return true
+                },
             },
         }
     },
@@ -79,7 +87,7 @@ export const ROOM_PASSWORD = {
 export const ROOM_RETYPE_PASSWORD = {
     name: "room-retype-password",
     placeholder: "Re-type Room Password",
-    validationRules: function () {
+    validationRules: function (password, retypePassword, isEnabledPassword) {
         const MAX = 50
         const MIN = 5
 
@@ -91,6 +99,20 @@ export const ROOM_RETYPE_PASSWORD = {
             maxLength: {
                 value: MAX,
                 message: `maximum ${MAX} characters`,
+            },
+            validate: {
+                passwordEmpty: (value) => {
+                    if (isEnabledPassword === true && value.length === 0) {
+                        return "empty password"
+                    }
+                    return true
+                },
+                passwordDidNotMatch: () => {
+                    if (isEnabledPassword === true && password !== retypePassword) {
+                        return "password did not match"
+                    }
+                    return true
+                },
             },
         }
     },
