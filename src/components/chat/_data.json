@@ -1,0 +1,110 @@
+[
+    {
+        "id": 0,
+        "timestamp": 1617685857377,
+        "is_conversation": false,
+        "is_archive": false,
+        "is_sent":true,
+        "user": {
+            "id": 0,
+            "name": "john doe"
+        },
+        "text": "HAS_JOIN_CHAT"
+    },
+    {
+        "id": 1,
+        "timestamp": 1617685917274,
+        "is_conversation": true,
+        "is_archive": false,
+        "is_sent": true,
+        "user": {
+            "id": 0,
+            "name": "john doe"
+        },
+        "text": "Hello World"
+    },
+    {
+        "id": 2,
+        "timestamp": 1617685984181,
+        "is_conversation": false,
+        "is_archive": false,
+        "is_sent": true,
+        "user": {
+            "id": 1,
+            "name": "mike thompson"
+        },
+        "text": "HAS_JOIN_CHAT"
+    },
+    {
+        "id": 3,
+        "timestamp": 1617686018126,
+        "is_conversation": true,
+        "is_archive": false,
+        "is_sent": true,
+        "user": {
+            "id": 1,
+            "name": "mike thompson"
+        },
+        "text": "Hello World"
+    },
+    {
+        "id": 4,
+        "timestamp": 1617686064655,
+        "is_conversation": true,
+        "is_archive": false,
+        "is_sent": true,
+        "user": {
+            "id": 1,
+            "name": "mike thompson"
+        },
+        "text": "Working now!"
+    },
+    {
+        "id": 5,
+        "timestamp": 1617686117609,
+        "is_conversation": true,
+        "is_archive": false,
+        "is_sent": true,
+        "user": {
+            "id": 0,
+            "name": "john doe"
+        },
+        "text": "Mine too!"
+    },
+    {
+        "id": 6,
+        "timestamp": 1617686166091,
+        "is_conversation": false,
+        "is_archive": false,
+        "is_sent": true,
+        "user": {
+            "id": 1,
+            "name": "mike thompson"
+        },
+        "text": "HAS_LEFT_CHAT"
+    },
+    {
+        "id": 7,
+        "timestamp": 1617686201836,
+        "is_conversation": false,
+        "is_archive": false,
+        "is_sent": true,
+        "user": {
+            "id": 0,
+            "name": "john doe"
+        },
+        "text": "HAS_LEFT_CHAT"
+    },
+    {
+        "id": 8,
+        "timestamp": 1617686239758,
+        "is_conversation": true,
+        "is_archive": true,
+        "is_sent": true,
+        "user": {
+            "id": 0,
+            "name": "john doe"
+        },
+        "text": "This is archive message!"
+    }
+]
