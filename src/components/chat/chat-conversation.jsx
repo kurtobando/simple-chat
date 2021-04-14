@@ -1,13 +1,20 @@
-import React from "react"
+import React, { useEffect } from "react"
 import ChatConversationOthers from "./chat-conversation-others"
 import ChatConversationMine from "./chat-conversation-mine"
 import ChatConversationTyping from "./chat-conversation-typing"
 import ChatConversationHasJoin from "./chat-conversation-has-join"
 import ChatConversationHasLeft from "./chat-conversation-has-left"
 
-const ChatConversation = ({ conversation = [], currentUser = {} }) => {
-    const mapConversation = conversation.map((convo) => {
-        const { id, is_archive, is_sent, is_conversation, text, timestamp, user } = convo
+const ChatConversation = (props) => {
+    const { conversation = [], currentUser = {}, state = {} } = props
+
+    useEffect(() => {
+        const chatConversationElement = document.getElementById("chat-conversation")
+        chatConversationElement.scrollTop = chatConversationElement.scrollHeight
+    }, [conversation.length, state.typingUser.length])
+
+    const mapConversation = conversation.map((message) => {
+        const { id, is_archive, is_sent, is_conversation, text, timestamp, user } = message
 
         if (is_conversation) {
             if (user.id === currentUser.id) {
@@ -45,10 +52,14 @@ const ChatConversation = ({ conversation = [], currentUser = {} }) => {
         }
         return false
     })
+    const mapTypingUsers = state.typingUser.map((name) => {
+        return <ChatConversationTyping username={name} />
+    })
+
     return (
-        <div className=" col-10 bg-light overflow-auto" style={{ maxHeight: "60vh" }}>
+        <div className=" col-10 bg-light overflow-auto" style={{ maxHeight: "60vh" }} id="chat-conversation">
             {mapConversation}
-            <ChatConversationTyping />
+            {mapTypingUsers}
         </div>
     )
 }
