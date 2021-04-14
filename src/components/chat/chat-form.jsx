@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useForm } from "react-hook-form"
 
 const ChatForm = (props) => {
-    const { onSubmitMessage, hasTypingMessageOff, hasTypingMessageOn, chat = {} } = props
+    const { onSubmitMessage, chat = {} } = props
     const { register, handleSubmit, errors } = useForm({ reValidateMode: "onSubmit" })
     const [message, setMessage] = useState("")
     let timer = 0

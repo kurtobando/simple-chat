@@ -76,12 +76,7 @@ class Chat extends React.Component {
                     <ChatMembers />
                 </div>
                 <div>
-                    <ChatForm
-                        onSubmitMessage={this.hasSendMessage}
-                        hasTypingMessageOff={this.hasTypingMessageOff}
-                        hasTypingMessageOn={this.hasTypingMessageOn}
-                        {...this}
-                    />
+                    <ChatForm onSubmitMessage={this.hasSendMessage} {...this} />
                 </div>
             </div>
         )
