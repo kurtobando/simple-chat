@@ -19,8 +19,8 @@ export const ROOM_NAME = {
                 message: `maximum ${MAX} characters`,
             },
             pattern: {
-                value: /^[\w.-]+$/,
-                message: "accepted characters are 0-9, a-z, period (.), and hyphen (-) only",
+                value: /^[\w\s]+$/,
+                message: "accepted characters are 0-9, a-z, and space only",
             },
         }
     },
