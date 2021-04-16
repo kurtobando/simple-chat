@@ -1,8 +1,10 @@
+import { navigate } from "gatsby"
 import React from "react"
-import { Link } from "gatsby"
+import store from "store2"
 import ChatConversation from "./chat-conversation"
 import ChatMembers from "./chat-members"
 import ChatForm from "./chat-form"
+import ChatButtonLeave from "./chat-button-leave"
 import data from "./_data.json"
 import ChatSocketIO from "./_chat-socket-io"
 import hasJoinChat from "./_has-join-chat"
@@ -60,6 +62,11 @@ class Chat extends React.Component {
         this.chat.userNotTyping().listen((data) => {
             this.hasTypingMessageOff(data)
         })
+
+        // if room id is not present, redirect to index page
+        if (!store("room_id")) {
+            return navigate("/?authenticated=false")
+        }
     }
     componentWillUnmount() {
         this.chat.disconnect()
@@ -67,7 +74,7 @@ class Chat extends React.Component {
     render() {
         return (
             <div>
-                <Link to="/">Back to Index</Link>
+                <ChatButtonLeave />
                 <div className="row" style={{ minHeight: "50vh" }}>
                     {/* chat conversation */}
                     <ChatConversation conversation={this.state.data} currentUser={this.state.currentUser} {...this} />
