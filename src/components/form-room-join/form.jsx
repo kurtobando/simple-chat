@@ -43,7 +43,7 @@ const Form = () => {
             {/* buttons */}
             <div className="form-group text-center">
                 <button className="m-1 btn btn-primary" type="submit">
-                    Create
+                    Join
                 </button>
                 <Link to="/" className="m-1 btn btn-outline-primary">
                     Cancel
