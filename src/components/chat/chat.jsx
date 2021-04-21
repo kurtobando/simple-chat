@@ -1,6 +1,4 @@
-import { navigate } from "gatsby"
 import React from "react"
-import store from "store2"
 import ChatConversation from "./chat-conversation"
 import ChatMembers from "./chat-members"
 import ChatForm from "./chat-form"
@@ -62,11 +60,6 @@ class Chat extends React.Component {
         this.chat.userNotTyping().listen((data) => {
             this.hasTypingMessageOff(data)
         })
-
-        // if room id is not present, redirect to index page
-        if (!store("room_id")) {
-            return navigate("/?authenticated=false")
-        }
     }
     componentWillUnmount() {
         this.chat.disconnect()
