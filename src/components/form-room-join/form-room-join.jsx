@@ -1,12 +1,20 @@
 import React from "react"
 import Form from "./form"
+import onSubmit from "./_on-submit"
 
 class FormRoomJoin extends React.Component {
-    // constructor() {
-    //     super()
-    // }
+    constructor() {
+        super()
+        this.state = {
+            error: {
+                hasError: false,
+                message: "",
+            },
+        }
+        this.onSubmit = onSubmit.bind(this)
+    }
     render() {
-        return <Form />
+        return <Form {...this} />
     }
 }
 

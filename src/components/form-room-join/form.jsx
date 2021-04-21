@@ -1,12 +1,21 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import { useForm } from "react-hook-form"
-import onSubmit from "./_on-submit"
 import { ROOM_UNIQUE_ID } from "./_constant"
+import { ROOM_PASSWORD } from "../form-room-create/_constant"
 
-const Form = () => {
+const Form = ({ onSubmit, state }) => {
     const [hasPassword, setHasPassword] = useState(false)
+    const [password, setPassword] = useState("")
     const { register, handleSubmit, errors } = useForm()
+
+    const toggleHasPassword = () => {
+        setHasPassword(!hasPassword)
+        setPassword("")
+    }
+    const onChangePassword = (event) => {
+        setPassword(event.target.value)
+    }
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -20,6 +29,7 @@ const Form = () => {
                     ref={register(ROOM_UNIQUE_ID.validationRules())}
                 />
                 {errors[ROOM_UNIQUE_ID.name] && errors[ROOM_UNIQUE_ID.name].message}
+                {state.error.hasError && state.error.message}
             </div>
 
             {/* has password? */}
@@ -28,7 +38,7 @@ const Form = () => {
                     className="form-check-input"
                     type="checkbox"
                     id="enable-protected-room"
-                    onChange={() => setHasPassword(!hasPassword)}
+                    onChange={toggleHasPassword}
                 />
                 <label className="form-check-label" htmlFor="enable-protected-room">
                     Room has password?
@@ -37,7 +47,16 @@ const Form = () => {
 
             {/* password */}
             <div className={hasPassword ? "form-group" : "d-none"}>
-                <input className="form-control" type="text" placeholder="Password" />
+                <input
+                    className="form-control"
+                    name={ROOM_PASSWORD.name}
+                    type="password"
+                    placeholder={ROOM_PASSWORD.placeholder}
+                    value={password}
+                    onChange={onChangePassword}
+                    ref={register(ROOM_PASSWORD.validationRules(hasPassword))}
+                />
+                {errors[ROOM_PASSWORD.name] && errors[ROOM_PASSWORD.name].message}
             </div>
 
             {/* buttons */}
