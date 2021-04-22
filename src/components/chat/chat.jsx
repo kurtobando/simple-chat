@@ -62,12 +62,12 @@ class Chat extends React.Component {
         })
     }
     componentWillUnmount() {
-        this.chat.disconnect()
+        this.chat.userDisConnected().emit()
     }
     render() {
         return (
             <div>
-                <ChatButtonLeave />
+                <ChatButtonLeave {...this} />
                 <div className="row" style={{ minHeight: "50vh" }}>
                     {/* chat conversation */}
                     <ChatConversation conversation={this.state.data} currentUser={this.state.currentUser} {...this} />

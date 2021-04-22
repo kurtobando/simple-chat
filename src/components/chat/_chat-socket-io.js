@@ -8,19 +8,17 @@ class ChatSocketIO {
     }
     connect() {
         this.socket.on("connect", () => {
-            console.log(`[client] user connected ${this.socket.id}`, this.user)
+            return false
         })
     }
     connect_error() {
         this.socket.on("connect_error", (error) => {
-            console.log(`[client] connection_error: ${error}`)
+            return false
         })
     }
     disconnect() {
         return this.socket.on("disconnect", (reason) => {
-            console.log(`[client] user disconnected ${this.socket.id}`)
-            console.log(`[client] user ${this.user}`)
-            console.log(`[client] ${reason}`)
+            return false
         })
     }
     setUser(user = {}) {
@@ -36,8 +34,6 @@ class ChatSocketIO {
             },
             listen: (callback) => {
                 this.socket.on("USER_CONNECTED", (data) => {
-                    console.log(`[client][USER_CONNECTED] received from server ${JSON.stringify(data)}`)
-
                     if (callback) {
                         return callback(data)
                     }
@@ -47,10 +43,11 @@ class ChatSocketIO {
     }
     userDisConnected() {
         return {
+            emit: () => {
+                this.socket.emit("USER_DISCONNECTED", { user: this.user })
+            },
             listen: (callback) => {
                 this.socket.on("USER_DISCONNECTED", (data) => {
-                    console.log(`[client][SERVER_USER_DISCONNECTED] received from server ${JSON.stringify(data)}`)
-
                     if (callback) {
                         return callback(data)
                     }
@@ -74,8 +71,6 @@ class ChatSocketIO {
             },
             listen: (callback) => {
                 this.socket.on("USER_SEND_MESSAGE", (data) => {
-                    console.log(`[client] send message`, data)
-
                     if (callback) {
                         return callback(data)
                     }
@@ -91,8 +86,6 @@ class ChatSocketIO {
             },
             listen: (callback) => {
                 this.socket.on(USER_TYPING, (data) => {
-                    console.log(`[client] user typing`, data)
-
                     if (callback) {
                         return callback(data)
                     }
@@ -108,8 +101,6 @@ class ChatSocketIO {
             },
             listen: (callback) => {
                 this.socket.on(USER_NOT_TYPING, (data) => {
-                    console.log(`[client] user not typing`, data)
-
                     if (callback) {
                         return callback(data)
                     }

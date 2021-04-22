@@ -2,11 +2,13 @@ import React from "react"
 import { navigate } from "gatsby"
 import store from "store2"
 
-const ChatButtonLeave = () => {
+const ChatButtonLeave = ({ chat }) => {
     const onLeaveChat = () => {
-        const room_id = store("room_id")
+        chat.userDisConnected().emit()
+
         store(false)
-        return navigate(`/?leave_chat=true&from=${room_id}`)
+
+        return navigate(`/?leave_chat=true&from=${store("room_id")}`)
     }
     return (
         <React.Fragment>
