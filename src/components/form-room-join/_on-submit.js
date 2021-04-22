@@ -5,7 +5,6 @@ import helperAxiosErrorHandler from "../../_helper-axios-error-handler"
 import { GATSBY_API_BASE_URL } from "../../_variables"
 
 function onSubmit(data) {
-    console.log(this)
     axios({
         baseURL: GATSBY_API_BASE_URL,
         url: "/room-join",

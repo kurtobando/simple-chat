@@ -1,9 +1,9 @@
 import React from "react"
+import generateUser from "./_generate-user"
 import ChatConversation from "./chat-conversation"
 import ChatMembers from "./chat-members"
 import ChatForm from "./chat-form"
 import ChatButtonLeave from "./chat-button-leave"
-import data from "./_data.json"
 import ChatSocketIO from "./_chat-socket-io"
 import hasJoinChat from "./_has-join-chat"
 import hasLeftChat from "./_has-left-chat"
@@ -31,10 +31,10 @@ class Chat extends React.Component {
     componentDidMount() {
         this.setState(
             {
-                data: data,
+                data: [],
                 currentUser: {
-                    id: 0,
-                    name: "john doe",
+                    id: generateUser.id,
+                    name: generateUser.name,
                 },
             },
             () => {
