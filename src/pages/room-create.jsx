@@ -1,11 +1,16 @@
 import React from "react"
 import FormRoomCreate from "../components/FormRoomCreate/FormRoomCreate"
 import GlobalLayout from "../components/GlobalLayout"
+import FormRoomJoin from "../components/FormRoomJoin/FormRoomJoin"
 
 const RoomCreate = () => {
     return (
         <GlobalLayout>
-            <FormRoomCreate />
+            <div className="d-flex flex-row justify-content-center align-items-center" style={{ height: "inherit" }}>
+                <div style={{ width: "100%", maxWidth: "350px" }}>
+                    <FormRoomCreate />
+                </div>
+            </div>
         </GlobalLayout>
     )
 }

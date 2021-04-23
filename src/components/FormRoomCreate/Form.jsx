@@ -113,10 +113,10 @@ const Form = () => {
 
             {/* buttons */}
             <div className="form-group text-center">
-                <button className="m-1 btn btn-primary" type="submit">
+                <button className="m-1 btn btn-block btn-primary" type="submit">
                     Create
                 </button>
-                <Link to="/" className="m-1 btn btn-outline-primary">
+                <Link to="/" className="m-1 btn btn-block btn-outline-primary">
                     Cancel
                 </Link>
             </div>

@@ -5,7 +5,11 @@ import GlobalLayout from "../components/GlobalLayout"
 const RoomJoin = () => {
     return (
         <GlobalLayout>
-            <FormRoomJoin />
+            <div className="d-flex flex-row justify-content-center align-items-center" style={{ height: "inherit" }}>
+                <div style={{ width: "100%", maxWidth: "350px" }}>
+                    <FormRoomJoin />
+                </div>
+            </div>
         </GlobalLayout>
     )
 }
