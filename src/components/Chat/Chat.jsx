@@ -1,9 +1,9 @@
 import React from "react"
-import generateUser from "./_generate-user"
-import ChatConversation from "./chat-conversation"
-import ChatMembers from "./chat-members"
-import ChatForm from "./chat-form"
-import ChatButtonLeave from "./chat-button-leave"
+import chatGenerateUser from "./_chat-generate-user"
+import ChatConversation from "./ChatConversation"
+import ChatMembers from "./ChatMembers"
+import ChatForm from "./ChatForm"
+import ChatButtonLeave from "./ChatButtonLeave"
 import ChatSocketIO from "./_chat-socket-io"
 import hasJoinChat from "./_has-join-chat"
 import hasLeftChat from "./_has-left-chat"
@@ -33,8 +33,8 @@ class Chat extends React.Component {
             {
                 data: [],
                 currentUser: {
-                    id: generateUser.id,
-                    name: generateUser.name,
+                    id: chatGenerateUser.id,
+                    name: chatGenerateUser.name,
                 },
             },
             () => {
@@ -63,16 +63,22 @@ class Chat extends React.Component {
     }
     componentWillUnmount() {
         this.chat.userDisConnected().emit()
+
+        // Fix Warning: Can't perform a React state update on an unmounted component
+        // return null when escape component, it will no longer hold any data in memory
+        this.setState = (state, callback) => {
+            return
+        }
     }
     render() {
         return (
             <div>
                 <ChatButtonLeave {...this} />
                 <div className="row" style={{ minHeight: "50vh" }}>
-                    {/* chat conversation */}
+                    {/* Chat conversation */}
                     <ChatConversation conversation={this.state.data} currentUser={this.state.currentUser} {...this} />
 
-                    {/* chat member */}
+                    {/* Chat member */}
                     <ChatMembers />
                 </div>
                 <div>

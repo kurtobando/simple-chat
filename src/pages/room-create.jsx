@@ -1,5 +1,5 @@
 import React from "react"
-import FormRoomCreate from "../components/form-room-create/form-room-create"
+import FormRoomCreate from "../components/FormRoomCreate/FormRoomCreate"
 
 const RoomCreate = () => {
     return (

@@ -1,8 +1,8 @@
 import uniqid from "uniqid"
 
-const generateUser = {
+const chatGenerateUser = {
     id: uniqid(),
     name: `guest-${uniqid()}`,
 }
 
-export default generateUser
+export default chatGenerateUser

@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Link } from "gatsby"
 import { useForm } from "react-hook-form"
 import { ROOM_UNIQUE_ID } from "./_constant"
-import { ROOM_PASSWORD } from "../form-room-create/_constant"
+import { ROOM_PASSWORD } from "../FormRoomCreate/_constant"
 
 const Form = ({ onSubmit, state }) => {
     const [hasPassword, setHasPassword] = useState(false)

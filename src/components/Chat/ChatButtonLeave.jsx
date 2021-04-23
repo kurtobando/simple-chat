@@ -4,11 +4,13 @@ import store from "store2"
 
 const ChatButtonLeave = ({ chat }) => {
     const onLeaveChat = () => {
+        const room_id = store("room_id")
+
         chat.userDisConnected().emit()
 
-        store(false)
+        store("room_id", "")
 
-        return navigate(`/?leave_chat=true&from=${store("room_id")}`)
+        return navigate(`/?leave_chat=true&from=${room_id}`)
     }
     return (
         <React.Fragment>

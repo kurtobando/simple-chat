@@ -1,7 +1,7 @@
 import React from "react"
 
-const Header = () => {
+const GlobalHeader = () => {
     return <div>{/*Hello Header*/}</div>
 }
 
-export default Header
+export default GlobalHeader

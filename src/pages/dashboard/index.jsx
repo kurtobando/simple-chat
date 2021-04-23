@@ -1,6 +1,6 @@
 import React from "react"
-import Layout from "./_layout"
-import Chat from "../../components/chat/chat"
+import GlobalLayout from "../../components/GlobalLayout"
+import Chat from "../../components/Chat/Chat"
 import store from "store2"
 import { navigate } from "gatsby"
 
@@ -26,11 +26,11 @@ class Index extends React.Component {
 
     render() {
         return (
-            <Layout>
+            <GlobalLayout>
                 <div className="container-fluid">
                     <Chat />
                 </div>
-            </Layout>
+            </GlobalLayout>
         )
     }
 }

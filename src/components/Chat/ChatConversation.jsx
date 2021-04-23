@@ -1,9 +1,9 @@
 import React, { useEffect } from "react"
-import ChatConversationOthers from "./chat-conversation-others"
-import ChatConversationMine from "./chat-conversation-mine"
-import ChatConversationTyping from "./chat-conversation-typing"
-import ChatConversationHasJoin from "./chat-conversation-has-join"
-import ChatConversationHasLeft from "./chat-conversation-has-left"
+import ChatConversationOthers from "./ChatConversationOthers"
+import ChatConversationMine from "./ChatConversationMine"
+import ChatConversationTyping from "./ChatConversationTyping"
+import ChatConversationHasJoin from "./ChatConversationHasJoin"
+import ChatConversationHasLeft from "./ChatConversationHasLeft"
 
 const ChatConversation = (props) => {
     const { conversation = [], currentUser = {}, state = {} } = props

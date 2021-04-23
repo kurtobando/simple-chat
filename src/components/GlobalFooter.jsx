@@ -1,7 +1,7 @@
 import React from "react"
 
-const Footer = () => {
+const GlobalFooter = () => {
     return <div>{/*Hello Footer*/}</div>
 }
 
-export default Footer
+export default GlobalFooter

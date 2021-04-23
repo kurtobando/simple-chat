@@ -1,19 +1,30 @@
 import { navigate } from "gatsby"
 import store from "store2"
 import axios from "axios"
-import helperAxiosErrorHandler from "../../_helper-axios-error-handler"
+import helperAxiosErrorHandler from "../../helper/_helper-axios-error-handler"
 import { GATSBY_API_BASE_URL } from "../../_variables"
 
-const onSubmit = (data) => {
+function onSubmit(data) {
     axios({
         baseURL: GATSBY_API_BASE_URL,
-        url: "/room-create",
+        url: "/room-join",
         method: "POST",
         data: data,
     })
         .then((response) => {
-            const { data = {} } = response.data
+            const { success = false, message = "", data = {} } = response.data
             const { room_id = null } = data
+
+            if (!success) {
+                return this.setState(() => {
+                    return {
+                        error: {
+                            hasError: true,
+                            message,
+                        },
+                    }
+                })
+            }
 
             store("room_id", room_id)
 
