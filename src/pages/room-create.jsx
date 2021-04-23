@@ -1,13 +1,12 @@
 import React from "react"
 import FormRoomCreate from "../components/FormRoomCreate/FormRoomCreate"
+import GlobalLayout from "../components/GlobalLayout"
 
 const RoomCreate = () => {
     return (
-        <div className="container-fluid">
-            <div>
-                <FormRoomCreate />
-            </div>
-        </div>
+        <GlobalLayout>
+            <FormRoomCreate />
+        </GlobalLayout>
     )
 }
 

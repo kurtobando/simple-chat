@@ -4,6 +4,7 @@ module.exports = {
         description: "Simple Chat, made from ReactJS, and socket.io",
     },
     plugins: [
+        "gatsby-plugin-sass",
         "gatsby-plugin-image",
         "gatsby-plugin-react-helmet",
         "gatsby-plugin-sitemap",

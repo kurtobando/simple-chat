@@ -1,13 +1,22 @@
 import React from "react"
-import GlobalHeader from "./GlobalHeader"
-import GlobalFooter from "./GlobalFooter"
+
+const outerElementStyles = {
+    height: "100vh",
+    display: "grid",
+    placeContent: "center",
+}
+
+const innerElementStyles = {
+    height: "85vh",
+    width: "85vw",
+}
 
 const GlobalLayout = (props) => {
     return (
-        <div>
-            <GlobalHeader />
-            {props.children}
-            <GlobalFooter />
+        <div className="bg-light" style={outerElementStyles}>
+            <div className="rounded shadow-sm bg-white" style={innerElementStyles}>
+                {props.children}
+            </div>
         </div>
     )
 }

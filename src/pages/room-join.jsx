@@ -1,13 +1,12 @@
 import React from "react"
 import FormRoomJoin from "../components/FormRoomJoin/FormRoomJoin"
+import GlobalLayout from "../components/GlobalLayout"
 
 const RoomJoin = () => {
     return (
-        <div className="container-fluid">
-            <div>
-                <FormRoomJoin />
-            </div>
-        </div>
+        <GlobalLayout>
+            <FormRoomJoin />
+        </GlobalLayout>
     )
 }
 
