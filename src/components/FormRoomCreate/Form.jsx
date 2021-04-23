@@ -18,7 +18,7 @@ const Form = () => {
     const [password, setPassword] = useState("")
     const [retypePassword, setRetypePassword] = useState("")
     const { register, handleSubmit, errors } = useForm({
-        reValidateMode: "onSubmit",
+        mode: "onSubmit",
     })
 
     useEffect(() => {
@@ -26,7 +26,7 @@ const Form = () => {
     }, [])
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
             {/* room name */}
             <div className="form-group">
                 <input
@@ -36,7 +36,7 @@ const Form = () => {
                     placeholder={ROOM_NAME.placeholder}
                     ref={register(ROOM_NAME.validationRules())}
                 />
-                {errors[ROOM_NAME.name] && errors[ROOM_NAME.name].message}
+                {errors[ROOM_NAME.name] && <span className="text-danger small">{errors[ROOM_NAME.name].message}</span>}
             </div>
 
             {/* room description */}
@@ -48,7 +48,9 @@ const Form = () => {
                     placeholder={ROOM_DESCRIPTION.placeholder}
                     ref={register(ROOM_DESCRIPTION.validationRules())}
                 />
-                {errors[ROOM_DESCRIPTION.name] && errors[ROOM_DESCRIPTION.name].message}
+                {errors[ROOM_DESCRIPTION.name] && (
+                    <span className="text-danger small">{errors[ROOM_DESCRIPTION.name].message}</span>
+                )}
             </div>
 
             {/* room unique id */}
@@ -61,6 +63,7 @@ const Form = () => {
                     readOnly={true}
                     ref={register}
                     value={uniqRoomId}
+                    title="room unique id"
                 />
             </div>
 
@@ -74,12 +77,12 @@ const Form = () => {
                     ref={register}
                     onChange={() => setIsEnabledPassword(!isEnabledPassword)}
                 />
-                <label className="form-check-label" htmlFor="enable-protected-room">
+                <label className="form-check-label small ml-1" htmlFor="enable-protected-room">
                     {ROOM_ENABLE_PASSWORD.placeholder}
                 </label>
             </div>
 
-            <div className={isEnabledPassword ? "d-block" : "d-none"}>
+            <div className={isEnabledPassword ? "d-block mt-2" : "d-none"}>
                 {/* password */}
                 <div className="form-group">
                     <input
@@ -91,7 +94,9 @@ const Form = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    {errors[ROOM_PASSWORD.name] && errors[ROOM_PASSWORD.name].message}
+                    {errors[ROOM_PASSWORD.name] && (
+                        <span className="text-danger small">{errors[ROOM_PASSWORD.name].message}</span>
+                    )}
                 </div>
 
                 {/* retype password */}
@@ -107,16 +112,18 @@ const Form = () => {
                         value={retypePassword}
                         onChange={(e) => setRetypePassword(e.target.value)}
                     />
-                    {errors[ROOM_RETYPE_PASSWORD.name] && errors[ROOM_RETYPE_PASSWORD.name].message}
+                    {errors[ROOM_RETYPE_PASSWORD.name] && (
+                        <span className="text-danger small">{errors[ROOM_RETYPE_PASSWORD.name].message}</span>
+                    )}
                 </div>
             </div>
 
             {/* buttons */}
-            <div className="form-group text-center">
-                <button className="m-1 btn btn-block btn-primary" type="submit">
+            <div className="form-group text-center mt-2">
+                <button className="mt-1 btn btn-block btn-primary" type="submit">
                     Create
                 </button>
-                <Link to="/" className="m-1 btn btn-block btn-outline-primary">
+                <Link to="/" className="mt-1 btn btn-block btn-outline-primary">
                     Cancel
                 </Link>
             </div>

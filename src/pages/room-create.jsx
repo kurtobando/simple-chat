@@ -1,7 +1,6 @@
 import React from "react"
 import FormRoomCreate from "../components/FormRoomCreate/FormRoomCreate"
 import GlobalLayout from "../components/GlobalLayout"
-import FormRoomJoin from "../components/FormRoomJoin/FormRoomJoin"
 
 const RoomCreate = () => {
     return (
