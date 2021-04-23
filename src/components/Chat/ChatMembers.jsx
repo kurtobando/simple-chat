@@ -1,23 +1,26 @@
 import React from "react"
 
-const ChatMembers = () => {
+const styles = {
+    wordWrap: "break-word",
+}
+
+const ChatMembers = ({ state }) => {
+    const { onlineUsers } = state
+
+    const onlineUsersMap = Object.keys(onlineUsers).map((key) => {
+        const name = onlineUsers[key].user.name || null
+        const id = onlineUsers[key].user.id || null
+
+        return (
+            <div key={id} className="bg-white border m-1 small p-2 " style={styles}>
+                {name}
+            </div>
+        )
+    })
+
     return (
-        <div className=" col-2 bg-light">
-            <div
-                className="bg-white rounded-circle border m-1 small d-flex flex-row justify-content-center align-items-center"
-                style={{ height: "60px", width: "60px" }}>
-                Avatar
-            </div>
-            <div
-                className="bg-white rounded-circle border m-1 small d-flex flex-row justify-content-center align-items-center"
-                style={{ height: "60px", width: "60px" }}>
-                Avatar
-            </div>
-            <div
-                className="bg-white rounded-circle border m-1 small d-flex flex-row justify-content-center align-items-center"
-                style={{ height: "60px", width: "60px" }}>
-                Avatar
-            </div>
+        <div className="col-2 bg-light overflow-auto" style={{ maxHeight: "60vh" }}>
+            {onlineUsersMap}
         </div>
     )
 }

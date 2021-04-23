@@ -11,6 +11,7 @@ import hasSendMessage from "./_has-send-message"
 import hasReceivedMessage from "./_has-received-message"
 import hasTypingMessageOn from "./_has-typing-message-on"
 import hasTypingMessageOff from "./_has-typing-message-off"
+import hasOnlineUsers from "./_has-online-users"
 
 class Chat extends React.Component {
     constructor() {
@@ -18,6 +19,7 @@ class Chat extends React.Component {
         this.state = {
             data: [],
             currentUser: {},
+            onlineUsers: {},
             typingUser: [],
         }
         this.chat = new ChatSocketIO()
@@ -27,6 +29,7 @@ class Chat extends React.Component {
         this.hasReceivedMessage = hasReceivedMessage.bind(this)
         this.hasTypingMessageOn = hasTypingMessageOn.bind(this)
         this.hasTypingMessageOff = hasTypingMessageOff.bind(this)
+        this.hasOnlineUsers = hasOnlineUsers.bind(this)
     }
     componentDidMount() {
         this.setState(
@@ -50,7 +53,9 @@ class Chat extends React.Component {
         this.chat.userDisConnected().listen((data) => {
             this.hasLeftChat(data)
         })
-        this.chat.usersOnline().listen()
+        this.chat.usersOnline().listen((data) => {
+            this.hasOnlineUsers(data)
+        })
         this.chat.userSendMessage().listen((data) => {
             this.hasReceivedMessage(data)
         })
@@ -79,7 +84,7 @@ class Chat extends React.Component {
                     <ChatConversation conversation={this.state.data} currentUser={this.state.currentUser} {...this} />
 
                     {/* Chat member */}
-                    <ChatMembers />
+                    <ChatMembers {...this} />
                 </div>
                 <div>
                     <ChatForm onSubmitMessage={this.hasSendMessage} {...this} />

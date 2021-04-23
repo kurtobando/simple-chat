@@ -57,9 +57,11 @@ class ChatSocketIO {
     }
     usersOnline() {
         return {
-            listen: () => {
+            listen: (callback) => {
                 this.socket.on("ONLINE_USERS", (data) => {
-                    console.log(`[client] online users`, { onlineUsers: data, length: Object.keys(data).length })
+                    if (callback) {
+                        return callback(data)
+                    }
                 })
             },
         }
