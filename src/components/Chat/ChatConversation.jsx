@@ -57,7 +57,7 @@ const ChatConversation = (props) => {
     })
 
     return (
-        <div className=" col-10 bg-light overflow-auto" style={{ maxHeight: "60vh" }} id="chat-conversation">
+        <div id="chat-conversation">
             {mapConversation}
             {mapTypingUsers}
         </div>

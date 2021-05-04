@@ -27,7 +27,7 @@ class Index extends React.Component {
     render() {
         return (
             <GlobalLayout>
-                <div className="container-fluid">
+                <div className="container-fluid" style={{ height: "inherit" }}>
                     <Chat />
                 </div>
             </GlobalLayout>

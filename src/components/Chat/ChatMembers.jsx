@@ -18,11 +18,7 @@ const ChatMembers = ({ state }) => {
         )
     })
 
-    return (
-        <div className="col-2 bg-light overflow-auto" style={{ maxHeight: "60vh" }}>
-            {onlineUsersMap}
-        </div>
-    )
+    return <div id="chat-members">{onlineUsersMap}</div>
 }
 
 export default ChatMembers

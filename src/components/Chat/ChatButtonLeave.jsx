@@ -14,7 +14,7 @@ const ChatButtonLeave = ({ chat }) => {
     }
     return (
         <React.Fragment>
-            <button className="btn btn-block btn-outline-primary" onClick={onLeaveChat}>
+            <button className="btn btn-block btn-outline-danger" onClick={onLeaveChat}>
                 Leave Chat
             </button>
         </React.Fragment>

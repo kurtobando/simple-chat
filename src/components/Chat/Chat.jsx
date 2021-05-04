@@ -12,6 +12,7 @@ import hasReceivedMessage from "./_has-received-message"
 import hasTypingMessageOn from "./_has-typing-message-on"
 import hasTypingMessageOff from "./_has-typing-message-off"
 import hasOnlineUsers from "./_has-online-users"
+import "./_chat.scss"
 
 class Chat extends React.Component {
     constructor() {
@@ -77,16 +78,18 @@ class Chat extends React.Component {
     }
     render() {
         return (
-            <div>
-                <ChatButtonLeave {...this} />
-                <div className="row" style={{ minHeight: "50vh" }}>
+            <div id="chat">
+                <div id="chat-actions" className="mb-2">
+                    <ChatButtonLeave {...this} />
+                </div>
+                <div id="chat-conversation-members" className="bg-light">
                     {/* Chat conversation */}
                     <ChatConversation conversation={this.state.data} currentUser={this.state.currentUser} {...this} />
 
                     {/* Chat member */}
                     <ChatMembers {...this} />
                 </div>
-                <div>
+                <div id="chat-form">
                     <ChatForm onSubmitMessage={this.hasSendMessage} {...this} />
                 </div>
             </div>

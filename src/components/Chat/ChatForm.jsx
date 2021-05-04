@@ -29,8 +29,8 @@ const ChatForm = (props) => {
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className="row">
-                <div className="col-12 col-sm-10">
-                    <div className="form-group">
+                <div className="col-12 col-sm-9">
+                    <div className="form-group mb-2 mb-sm-0">
                         <input
                             type="text"
                             className="form-control"
@@ -54,8 +54,8 @@ const ChatForm = (props) => {
                         <small>{errors["message"] && errors["message"].message}</small>
                     </div>
                 </div>
-                <div className="col-12 col-sm-2">
-                    <div className="form-group">
+                <div className="col-12 col-sm-3">
+                    <div className="form-group mb-0">
                         <button className="btn btn-primary btn-block">Send</button>
                     </div>
                 </div>
