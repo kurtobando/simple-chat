@@ -33,7 +33,9 @@
       overflow: auto!important;
 
       #chat-conversation {}
-      #chat-members {}
+      #chat-members {
+        flex-basis: 90px!important;
+      }
     }
     #chat-form {}
   }

@@ -4,6 +4,8 @@ const styles = {
     wordWrap: "break-word",
     borderRadius: "50%",
     textAlign: "center",
+    height: "6em",
+    width: "6em",
 }
 
 const ChatMembers = ({ state }) => {
