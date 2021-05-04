@@ -2,6 +2,8 @@ import React from "react"
 
 const styles = {
     wordWrap: "break-word",
+    borderRadius: "50%",
+    textAlign: "center",
 }
 
 const ChatMembers = ({ state }) => {
