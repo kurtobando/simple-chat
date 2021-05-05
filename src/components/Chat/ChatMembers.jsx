@@ -14,10 +14,11 @@ const ChatMembers = ({ state }) => {
     const onlineUsersMap = Object.keys(onlineUsers).map((key) => {
         const name = onlineUsers[key].user.name || null
         const id = onlineUsers[key].user.id || null
+        const imageSource = `https://avatars.dicebear.com/api/human/${name}.svg`
 
         return (
-            <div key={id} className="bg-white border m-1 small p-2 " style={styles}>
-                {name}
+            <div key={id} className="bg-white  m-1 small p-2 " style={styles}>
+                <img src={imageSource} alt={name} />
             </div>
         )
     })
