@@ -22,7 +22,9 @@ class Chat extends React.Component {
             currentUser: {},
             onlineUsers: {},
             typingUser: [],
+            timestamp: "",
         }
+        this.interval = null
         this.chat = new ChatSocketIO()
         this.hasJoinChat = hasJoinChat.bind(this)
         this.hasLeftChat = hasLeftChat.bind(this)
@@ -66,6 +68,11 @@ class Chat extends React.Component {
         this.chat.userNotTyping().listen((data) => {
             this.hasTypingMessageOff(data)
         })
+
+        // add interval for us to re-render chat component with updated timestamp for every messages
+        this.interval = setInterval(() => {
+            this.setState({ timestamp: Date.now() })
+        }, 5000)
     }
     componentWillUnmount() {
         this.chat.userDisConnected().emit()
@@ -75,6 +82,9 @@ class Chat extends React.Component {
         this.setState = (state, callback) => {
             return
         }
+
+        // clear interval to prevent errors and leaking memory
+        clearInterval(this.interval)
     }
     render() {
         return (
@@ -85,7 +95,6 @@ class Chat extends React.Component {
                 <div id="chat-conversation-members" className="bg-light">
                     {/* Chat conversation */}
                     <ChatConversation conversation={this.state.data} currentUser={this.state.currentUser} {...this} />
-
                     {/* Chat member */}
                     <ChatMembers {...this} />
                 </div>
