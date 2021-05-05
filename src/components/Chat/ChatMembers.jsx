@@ -18,8 +18,8 @@ const ChatMembers = ({ state }) => {
         const imageSource = `https://avatars.dicebear.com/api/human/${name}.svg`
 
         return (
-            <div>
-                <div key={id} className="bg-white small p-2 " style={styles}>
+            <div key={id}>
+                <div className="bg-white small p-2 " style={styles}>
                     <img src={imageSource} alt={name} style={{ height: "40px", width: "40px" }} />
                 </div>
                 <span className="text-info m-auto d-block p-1 small text-center rounded" style={{ fontSize: "0.6em" }}>
