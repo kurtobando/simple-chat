@@ -69,7 +69,7 @@ class ChatSocketIO {
     userSendMessage() {
         return {
             emit: () => {
-                this.socket.emit("USER_SEND_MESSAGE", { message: this.message })
+                this.socket.emit("USER_SEND_MESSAGE", { message: this.message, user: this.user })
             },
             listen: (callback) => {
                 this.socket.on("USER_SEND_MESSAGE", (data) => {

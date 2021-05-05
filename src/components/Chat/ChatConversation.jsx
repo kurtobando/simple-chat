@@ -12,7 +12,6 @@ const ChatConversation = (props) => {
         const chatConversationElement = document.getElementById("chat-conversation")
         chatConversationElement.scrollTop = chatConversationElement.scrollHeight
     }, [conversation.length, state.typingUser.length])
-
     const mapConversation = conversation.map((message) => {
         const { id, is_archive, is_sent, is_conversation, text, timestamp, user } = message
 

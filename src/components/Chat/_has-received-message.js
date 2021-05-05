@@ -1,5 +1,5 @@
 function hasReceivedMessage(data = {}) {
-    const { message } = data
+    const { message, user } = data
 
     this.setState((prevState) => {
         return {
@@ -11,7 +11,7 @@ function hasReceivedMessage(data = {}) {
                     is_conversation: true,
                     is_archive: false,
                     is_sent: true,
-                    user: this.state.currentUser,
+                    user: user,
                     text: message,
                 },
             ],
