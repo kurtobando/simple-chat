@@ -1,5 +1,5 @@
 import { io } from "socket.io-client"
-const GATSBY_API_BASE_URL = process.env.GATSBY_API_BASE_URL || null
+import { GATSBY_API_BASE_URL } from "../../_variables"
 
 class ChatSocketIO {
     constructor() {
