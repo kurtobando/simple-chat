@@ -23,19 +23,17 @@ const ChatMembers = ({ state }) => {
                 <div className="bg-white small p-2 " style={styles}>
                     <img src={imageSource} alt={name} style={{ height: "40px", width: "40px" }} />
                 </div>
-                <span className="text-success d-block p-1 small text-center rounded" style={{ fontSize: "0.6em" }}>
-                    {name}
-                </span>
+                <span className="text-success d-block p-1 small text-center rounded">{name}</span>
             </div>
         )
     })
     return (
         <React.Fragment>
             <div id="chat-members">
-                <div id="chat-members-count" className="d-block small text-center text-success  m-auto ">
-                    {`${onlineUsersCount} Online Users`}
+                <div id="chat-members-count" className="d-block small text-center text-success font-weight-bold mt-2">
+                    {`${onlineUsersCount} Online Guest(s)`}
                 </div>
-                {onlineUsersMap}
+                <div id="chat-members-online">{onlineUsersMap}</div>
             </div>
         </React.Fragment>
     )

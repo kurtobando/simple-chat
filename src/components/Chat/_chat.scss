@@ -18,7 +18,15 @@
       flex-basis: 120px;
       overflow: auto!important;
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
+
+      #chat-members-count {
+        margin: auto 0em;
+      }
+      #chat-members-online{
+        display: flex;
+        flex-direction: row;
+      }
     }
   }
   #chat-form {
@@ -38,6 +46,14 @@
       #chat-members {
         flex-basis: 150px!important;
         flex-direction: column;
+
+        #chat-members-count {
+          margin:  0em auto;
+        }
+        #chat-members-online{
+          display: flex;
+          flex-direction: column;
+        }
       }
     }
     #chat-form {}
