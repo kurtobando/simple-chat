@@ -1,6 +1,6 @@
 module.exports = {
     siteMetadata: {
-	siteUrl: "https://simple-chat.kurtobando.com",
+        siteUrl: "https://simple-chat.kurtobando.com",
         title: "Simple Chat",
         description: "Simple Chat, made from ReactJS, and socket.io",
     },
