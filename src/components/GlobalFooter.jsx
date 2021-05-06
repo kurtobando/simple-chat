@@ -3,7 +3,7 @@ import React from "react"
 const GlobalFooter = () => {
     return (
         <div className="text-center text-muted small p-3">
-            <a href="https://github.com/kurtobando/" className="text-muted" target="_blank" rel="noreferrer">
+            <a href="https://github.com/kurtobando/simple-chat" className="text-muted" target="_blank" rel="noreferrer">
                 Simple Chat - Github Repository
             </a>
             {` | `}

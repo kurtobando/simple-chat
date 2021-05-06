@@ -26,7 +26,7 @@ const GlobalLayout = (props) => {
                         </h4>
                         <span className="d-inline-block ml-2">
                             <a
-                                href="https://github.com/kurtobando/"
+                                href="https://github.com/kurtobando/simple-chat"
                                 target="_blank"
                                 rel="noreferrer"
                                 className="text-white">
