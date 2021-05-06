@@ -1,8 +1,9 @@
 import { io } from "socket.io-client"
+const GATSBY_API_BASE_URL = process.env.GATSBY_API_BASE_URL || null
 
 class ChatSocketIO {
     constructor() {
-        this.socket = io("http://localhost:3000")
+        this.socket = io(GATSBY_API_BASE_URL)
         this.user = {}
         this.message = null
     }
