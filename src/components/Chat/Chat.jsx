@@ -92,7 +92,7 @@ class Chat extends React.Component {
                 <div id="chat-actions" className="mb-2">
                     <ChatButtonLeave {...this} />
                 </div>
-                <div id="chat-conversation-members" className="bg-light">
+                <div id="chat-conversation-members">
                     {/* Chat conversation */}
                     <ChatConversation conversation={this.state.data} currentUser={this.state.currentUser} {...this} />
                     {/* Chat member */}

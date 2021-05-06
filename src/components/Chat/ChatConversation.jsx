@@ -56,7 +56,7 @@ const ChatConversation = (props) => {
     })
 
     return (
-        <div id="chat-conversation">
+        <div id="chat-conversation" className="bg-light rounded p-2">
             {mapConversation}
             {mapTypingUsers}
         </div>
