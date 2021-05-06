@@ -88,20 +88,26 @@ class Chat extends React.Component {
     }
     render() {
         return (
-            <div id="chat">
-                <div id="chat-actions" className="mb-2">
+            <React.Fragment>
+                <div id="chat">
+                    <div id="chat-conversation-members">
+                        {/* Chat conversation */}
+                        <ChatConversation
+                            conversation={this.state.data}
+                            currentUser={this.state.currentUser}
+                            {...this}
+                        />
+                        {/* Chat member */}
+                        <ChatMembers {...this} />
+                    </div>
+                    <div id="chat-form">
+                        <ChatForm onSubmitMessage={this.hasSendMessage} {...this} />
+                    </div>
+                </div>
+                <div id="chat-actions" className="mt-2 mb-2">
                     <ChatButtonLeave {...this} />
                 </div>
-                <div id="chat-conversation-members">
-                    {/* Chat conversation */}
-                    <ChatConversation conversation={this.state.data} currentUser={this.state.currentUser} {...this} />
-                    {/* Chat member */}
-                    <ChatMembers {...this} />
-                </div>
-                <div id="chat-form">
-                    <ChatForm onSubmitMessage={this.hasSendMessage} {...this} />
-                </div>
-            </div>
+            </React.Fragment>
         )
     }
 }
