@@ -1,7 +1,9 @@
 $font-family-sans-serif: "Poppins";
 $font-family-monospace: "Poppins";
 $font-family-base: $font-family-sans-serif !default;
-$font-size-base: 0.875rem !default;
+$font-size-base: 0.8rem !default;
+$input-font-size: $font-size-base;
+$blue: #2389f7;
 
 @import "~bootstrap/scss/bootstrap";
 
