@@ -9,12 +9,14 @@ const GATSBY_GOOGLE_ANALYTICS_ID = process.env.GATSBY_GOOGLE_ANALYTICS_ID
 const GATSBY_SITE_URL = process.env.GATSBY_SITE_URL
 const GATSBY_SITE_TITLE = process.env.GATSBY_SITE_TITLE
 const GATSBY_SITE_DESCRIPTION = process.env.GATSBY_SITE_DESCRIPTION
+const GATSBY_SITE_IMAGE_PREVIEW = process.env.GATSBY_SITE_IMAGE_PREVIEW
 
 module.exports = {
     siteMetadata: {
         siteUrl: GATSBY_SITE_URL,
         title: GATSBY_SITE_TITLE,
         description: GATSBY_SITE_DESCRIPTION,
+        imagePreview: GATSBY_SITE_IMAGE_PREVIEW,
     },
     plugins: [
         {
