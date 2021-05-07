@@ -2,7 +2,7 @@
   "name": "simple-chat",
   "version": "1.0.0",
   "private": true,
-  "description": "Simple Chat, made from ReactJS, and socket.io",
+  "description": "A simple chat application powered from GatsbyJS, NodeJS, Mongoose and socket.io",
   "author": "Kurt Obando",
   "keywords": [
     "simple-chat"
