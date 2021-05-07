@@ -2,13 +2,14 @@ module.exports = {
     siteMetadata: {
         siteUrl: "https://simple-chat.kurtobando.com",
         title: "Simple Chat",
-        description: "Simple Chat, made from ReactJS, and socket.io",
+        description: "A simple chat application powered from GatsbyJS, NodeJS, Mongoose and socket.io",
     },
     plugins: [
         "gatsby-plugin-sass",
         "gatsby-plugin-image",
         "gatsby-plugin-react-helmet",
         "gatsby-plugin-sitemap",
+        "gatsby-plugin-react-helmet",
         {
             resolve: "gatsby-plugin-manifest",
             options: {

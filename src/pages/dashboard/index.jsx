@@ -1,5 +1,6 @@
 import React from "react"
 import GlobalLayout from "../../components/GlobalLayout"
+import GlobalHeader from "../../components/GlobalHeader"
 import Chat from "../../components/Chat/Chat"
 import store from "store2"
 import { navigate } from "gatsby"
@@ -26,11 +27,14 @@ class Index extends React.Component {
 
     render() {
         return (
-            <GlobalLayout>
-                <div className="container-fluid" style={{ height: "inherit" }}>
-                    <Chat />
-                </div>
-            </GlobalLayout>
+            <React.Fragment>
+                <GlobalHeader />
+                <GlobalLayout>
+                    <div className="container-fluid" style={{ height: "inherit" }}>
+                        <Chat />
+                    </div>
+                </GlobalLayout>
+            </React.Fragment>
         )
     }
 }
