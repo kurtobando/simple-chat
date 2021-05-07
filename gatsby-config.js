@@ -5,6 +5,7 @@ require("dotenv").config({
 
 const GATSBY_HOTJAR_ID = process.env.GATSBY_HOTJAR_ID
 const GATSBY_HOTJAR_VERSION = process.env.GATSBY_HOTJAR_VERSION
+const GATSBY_GOOGLE_ANALYTICS_ID = process.env.GATSBY_GOOGLE_ANALYTICS_ID
 
 module.exports = {
     siteMetadata: {
@@ -13,6 +14,13 @@ module.exports = {
         description: "A simple chat application powered from GatsbyJS, NodeJS, Mongoose and socket.io",
     },
     plugins: [
+        {
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+                trackingId: GATSBY_GOOGLE_ANALYTICS_ID,
+                head: false,
+            },
+        },
         "gatsby-plugin-sass",
         "gatsby-plugin-image",
         "gatsby-plugin-react-helmet",
