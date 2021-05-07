@@ -10,7 +10,8 @@ const outerElementStyles = {
 }
 
 const innerElementStyles = {
-    height: "80vh",
+    height: "81vh",
+    minHeight: "500px",
     width: "80vw",
     maxWidth: "1000px",
     margin: "0 auto",

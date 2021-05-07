@@ -13,6 +13,7 @@ import hasReceivedMessage from "./_has-received-message"
 import hasTypingMessageOn from "./_has-typing-message-on"
 import hasTypingMessageOff from "./_has-typing-message-off"
 import hasOnlineUsers from "./_has-online-users"
+import getRoomDetails from "./_get_room_details"
 import "./_chat.scss"
 
 class Chat extends React.Component {
@@ -25,6 +26,8 @@ class Chat extends React.Component {
             typingUser: [],
             timestamp: "",
             roomUniqId: "",
+            roomName: "",
+            roomDescription: "",
         }
         this.interval = null
         this.chat = new ChatSocketIO()
@@ -35,6 +38,7 @@ class Chat extends React.Component {
         this.hasTypingMessageOn = hasTypingMessageOn.bind(this)
         this.hasTypingMessageOff = hasTypingMessageOff.bind(this)
         this.hasOnlineUsers = hasOnlineUsers.bind(this)
+        this.getRoomDetails = getRoomDetails.bind(this)
     }
     componentDidMount() {
         this.setState(
@@ -47,6 +51,7 @@ class Chat extends React.Component {
                 roomUniqId: store("room_id"),
             },
             () => {
+                this.getRoomDetails()
                 this.chat.setUser(this.state.currentUser)
                 this.chat.userConnected().emit()
             }
@@ -92,8 +97,18 @@ class Chat extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className="text-center text-primary p-2">
-                    UNIQUE ROOM ID <span className="badge badge-primary p-1">{this.state.roomUniqId}</span>
+                <div className="text-center text-info p-2">
+                    <div className="d-flex justify-content-center">
+                        <div className="ml-2 mr-2">
+                            UNIQUE ROOM ID <span className="badge badge-info p-1">{this.state.roomUniqId}</span>
+                        </div>
+                        <div className="ml-2 mr-2">
+                            ROOM NAME{" "}
+                            <span className="badge badge-info p-1" title={this.state.roomDescription}>
+                                {this.state.roomName}
+                            </span>
+                        </div>
+                    </div>
                 </div>
                 <div id="chat">
                     <div id="chat-conversation-members">
