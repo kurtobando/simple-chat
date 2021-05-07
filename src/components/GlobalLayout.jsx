@@ -9,7 +9,7 @@ const outerElementStyles = {
 }
 
 const innerElementStyles = {
-    height: "70vh",
+    height: "80vh",
     width: "80vw",
     maxWidth: "1000px",
     margin: "0 auto",

@@ -1,4 +1,5 @@
 import React from "react"
+import store from "store2"
 import chatGenerateUser from "./_chat-generate-user"
 import ChatConversation from "./ChatConversation"
 import ChatMembers from "./ChatMembers"
@@ -23,6 +24,7 @@ class Chat extends React.Component {
             onlineUsers: {},
             typingUser: [],
             timestamp: "",
+            roomUniqId: "",
         }
         this.interval = null
         this.chat = new ChatSocketIO()
@@ -42,6 +44,7 @@ class Chat extends React.Component {
                     id: chatGenerateUser.id,
                     name: chatGenerateUser.name,
                 },
+                roomUniqId: store("room_id"),
             },
             () => {
                 this.chat.setUser(this.state.currentUser)
@@ -89,6 +92,9 @@ class Chat extends React.Component {
     render() {
         return (
             <React.Fragment>
+                <div className="text-center text-primary p-2">
+                    UNIQUE ROOM ID <span className="badge badge-primary p-1">{this.state.roomUniqId}</span>
+                </div>
                 <div id="chat">
                     <div id="chat-conversation-members">
                         {/* Chat conversation */}
