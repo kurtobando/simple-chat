@@ -100,7 +100,7 @@ const ChatForm = (props) => {
                             </div>
                             <a
                                 href="#toggle-emoji"
-                                className="btn btn-outline-primary rounded"
+                                className="btn btn-outline-light rounded"
                                 onClick={onToggleEmoji}
                                 style={{ padding: "0.4em 0.5em 0.0em 0.5em" }}>
                                 <Emoji emoji={{ id: "grin", skin: null }} size={20} />
