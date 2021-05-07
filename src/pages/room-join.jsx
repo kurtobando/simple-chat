@@ -6,7 +6,7 @@ const RoomJoin = () => {
     return (
         <GlobalLayout>
             <div className="d-flex flex-row justify-content-center align-items-center" style={{ height: "inherit" }}>
-                <div style={{ width: "100%", maxWidth: "350px" }}>
+                <div style={{ width: "100%", maxWidth: "350px" }} className="p-3">
                     <FormRoomJoin />
                 </div>
             </div>
