@@ -8,11 +8,15 @@ const NotFoundPage = () => {
             <GlobalHeader />
             <div className="text-center bg-light vh-100">
                 <div className="d-flex flex-column justify-content-center" style={{ height: "inherit" }}>
-                    <div>
+                    <div className="p-5">
                         <h1>Sorry, Page Not found</h1>
-                        <p className="mr-5 ml-5">
+                        <p>
                             Maybe this page moved? Got deleted? Is hiding out in quarantine? Never existed in the first
-                            place? Let's go <Link to="/">home</Link>. and try from there.
+                            place? Let's go{" "}
+                            <Link to="/" className="text-info">
+                                home
+                            </Link>
+                            . and try from there.
                         </p>
                     </div>
                 </div>
