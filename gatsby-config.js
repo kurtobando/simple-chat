@@ -1,3 +1,11 @@
+// https://www.gatsbyjs.com/docs/how-to/local-development/environment-variables/#server-side-nodejs
+require("dotenv").config({
+    path: `.env.${process.env.NODE_ENV}`,
+})
+
+const GATSBY_HOTJAR_ID = process.env.GATSBY_HOTJAR_ID
+const GATSBY_HOTJAR_VERSION = process.env.GATSBY_HOTJAR_VERSION
+
 module.exports = {
     siteMetadata: {
         siteUrl: "https://simple-chat.kurtobando.com",
@@ -31,6 +39,14 @@ module.exports = {
             options: {
                 RewriteBase: "/",
                 https: true,
+            },
+        },
+        {
+            resolve: `gatsby-plugin-hotjar`,
+            options: {
+                includeInDevelopment: true,
+                id: GATSBY_HOTJAR_ID,
+                sv: GATSBY_HOTJAR_VERSION,
             },
         },
     ],
