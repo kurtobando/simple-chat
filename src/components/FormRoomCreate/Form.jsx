@@ -22,7 +22,7 @@ const Form = () => {
     })
 
     useEffect(() => {
-        setUniqRoomId(uniqid("simple-chat-"))
+        setUniqRoomId(uniqid("sc-"))
     }, [])
 
     return (
@@ -65,6 +65,9 @@ const Form = () => {
                     value={uniqRoomId}
                     title="room unique id"
                 />
+                <div className="text-right">
+                    <span className="badge badge-info">UNIQUE ROOM ID</span>
+                </div>
             </div>
 
             {/* enable protected room */}

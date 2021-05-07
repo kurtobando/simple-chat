@@ -56,7 +56,7 @@ export const ROOM_DESCRIPTION = {
 
 export const ROOM_UNIQUE_ID = {
     name: "room-unique-id",
-    placeholder: "Room Unique ID",
+    placeholder: "Unique Room ID",
 }
 
 export const ROOM_ENABLE_PASSWORD = {

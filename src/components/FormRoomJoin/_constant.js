@@ -1,6 +1,6 @@
 export const ROOM_UNIQUE_ID = {
     name: "room-unique-id",
-    placeholder: "Room Unique ID",
+    placeholder: "Unique Room ID",
     validationRules: function () {
         const MAX = 50
         const MIN = 5
