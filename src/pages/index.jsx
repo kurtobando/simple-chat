@@ -6,7 +6,7 @@ const Index = () => {
     return (
         <GlobalLayout>
             <div className="d-flex flex-row justify-content-center align-items-center" style={{ height: "inherit" }}>
-                <div className="text-center" style={{ width: "100%", maxWidth: "350px" }} className="p-3">
+                <div className="text-center p-3" style={{ width: "100%", maxWidth: "350px" }}>
                     <Link to="/room-create" className="mt-1 btn btn-block btn-primary">
                         Create Room
                     </Link>
