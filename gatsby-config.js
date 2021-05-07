@@ -6,12 +6,15 @@ require("dotenv").config({
 const GATSBY_HOTJAR_ID = process.env.GATSBY_HOTJAR_ID
 const GATSBY_HOTJAR_VERSION = process.env.GATSBY_HOTJAR_VERSION
 const GATSBY_GOOGLE_ANALYTICS_ID = process.env.GATSBY_GOOGLE_ANALYTICS_ID
+const GATSBY_SITE_URL = process.env.GATSBY_SITE_URL
+const GATSBY_SITE_TITLE = process.env.GATSBY_SITE_TITLE
+const GATSBY_SITE_DESCRIPTION = process.env.GATSBY_SITE_DESCRIPTION
 
 module.exports = {
     siteMetadata: {
-        siteUrl: "https://simple-chat.kurtobando.com",
-        title: "Simple Chat",
-        description: "A simple chat application powered from GatsbyJS, NodeJS, Mongoose and socket.io",
+        siteUrl: GATSBY_SITE_URL,
+        title: GATSBY_SITE_TITLE,
+        description: GATSBY_SITE_DESCRIPTION,
     },
     plugins: [
         {
