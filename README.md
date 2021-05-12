@@ -9,6 +9,7 @@ Which means, we never save your messages on our server, only active chat members
 Have doubts? Check Source Code
 
 Client [github.com/kurtobando/simple-chat](https://github.com/kurtobando/simple-chat)
+
 Server API [github.com/kurtobando/simple-chat-api](https://github.com/kurtobando/simple-chat-api)
 
 ## Demo
